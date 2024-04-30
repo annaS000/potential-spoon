@@ -1,0 +1,26 @@
+.tag,
+.tag * {
+  box-sizing: border-box;
+}
+.tag {
+  background: #5f6368;
+  border-radius: 23px;
+  padding: 6px 30px 6px 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.tag .option-1 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

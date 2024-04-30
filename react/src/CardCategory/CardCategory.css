@@ -1,0 +1,15 @@
+.card-category,
+.card-category * {
+  box-sizing: border-box;
+}
+.card-category {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.card-category .card-instance {
+  flex-shrink: 0 !important;
+}

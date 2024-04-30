@@ -1,0 +1,15 @@
+.tags,
+.tags * {
+  box-sizing: border-box;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.tags .tag-instance {
+  flex-shrink: 0 !important;
+}
