@@ -84,3 +84,43 @@ export default DataCards;
     border-top: 2px solid black;
     padding-top: 10px;
 }
+
+---
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates as many columns as can fit without making them smaller than 200px */
+    gap: 20px; /* Space between cards */
+    padding: 20px; /* Padding around the grid */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures the content inside the card is spaced out evenly */
+    align-items: stretch; /* Stretches card items to fill the width of the card */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow for better contrast */
+}
+
+.card-details {
+    margin-top: 20px;
+    border-top: 2px solid black;
+    padding-top: 10px;
+    background-color: #f9f9f9; /* Slightly different background for contrast */
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
