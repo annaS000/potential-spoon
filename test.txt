@@ -126,21 +126,21 @@ export default DataCards;
 ---
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3 - 20px), 1fr)); /* 3 cards per row, adjust margin */
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 4 - 20px), 1fr)); /* Default to 4 cards per row */
     gap: 20px;
-    width: 100%; /* Ensures the container fills its parent */
-    padding: 10px; /* Padding around the grid */
+    width: 100%;
+    padding: 10px;
 }
 
 .card {
-    height: 200px; /* Set a fixed height */
+    height: 180px; /* Decreased height to make cards smaller */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #f9f9f9; /* Light grey background */
+    background-color: #f9f9f9;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -149,4 +149,24 @@ export default DataCards;
     border-top: 2px solid black;
     padding-top: 10px;
 }
+
+/* Media queries for responsive adjustments */
+@media (max-width: 1200px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3 - 20px), 1fr)); /* 3 cards per row */
+    }
+}
+
+@media (max-width: 900px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(calc(100% / 2 - 20px), 1fr)); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(calc(100% / 1 - 20px), 1fr)); /* 1 card per row */
+    }
+}
+
 
