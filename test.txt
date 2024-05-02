@@ -1,0 +1,86 @@
+import React, { useState, useEffect } from 'react';
+
+function DataCards() {
+    const [data, setData] = useState([]);          // State to store the fetched data
+    const [searchTerm, setSearchTerm] = useState('');  // State to store the search term
+    const [selectedCard, setSelectedCard] = useState(null);  // State to store the selected card's details
+
+    // Fetch data from Flask API on component mount
+    useEffect(() => {
+        fetch('http://localhost:5000/api/data')  // Adjust the API URL as needed
+            .then(response => response.json())
+            .then(data => setData(data))
+            .catch(error => console.error('Error:', error));
+    }, []);
+
+    // Filter data based on search term
+    const filteredData = data.filter(item => 
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // Handle clicking on a card
+    const handleCardClick = (cardData) => {
+        setSelectedCard(cardData);
+    };
+
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+            />
+            <div className="card-container">
+                {filteredData.map((item, index) => (
+                    <div key={index} className="card" onClick={() => handleCardClick(item)}>
+                        <h3>{item.name}</h3>
+                        <p>{item.summary}</p>
+                    </div>
+                ))}
+            </div>
+            {selectedCard && (
+                <div className="card-details">
+                    <h2>{selectedCard.name}</h2>
+                    <p>{selectedCard.description}</p>
+                    {/* Display other attributes as needed */}
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default DataCards;
+
+
+
+
+
+
+
+
+
+———————
+
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    cursor: pointer;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.card-details {
+    margin-top: 20px;
+    border-top: 2px solid black;
+    padding-top: 10px;
+}
