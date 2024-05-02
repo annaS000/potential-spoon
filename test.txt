@@ -123,4 +123,30 @@ export default DataCards;
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
 }
+---
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3 - 20px), 1fr)); /* 3 cards per row, adjust margin */
+    gap: 20px;
+    width: 100%; /* Ensures the container fills its parent */
+    padding: 10px; /* Padding around the grid */
+}
+
+.card {
+    height: 200px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light grey background */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-details {
+    margin-top: 20px;
+    border-top: 2px solid black;
+    padding-top: 10px;
+}
 
